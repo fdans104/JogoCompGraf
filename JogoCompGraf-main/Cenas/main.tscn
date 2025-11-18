@@ -1,0 +1,33 @@
+[gd_scene load_steps=9 format=3 uid="uid://gjtilgqfyuxi"]
+
+[ext_resource type="Script" uid="uid://b0r12lvb572um" path="res://Cenas/main.gd" id="1_tv412"]
+[ext_resource type="PackedScene" uid="uid://b2xjiw2n32u7f" path="res://Cenas/player.tscn" id="2_n00j1"]
+[ext_resource type="PackedScene" uid="uid://blry6jokh3cai" path="res://Cenas/CC.tscn" id="2_qy7bc"]
+[ext_resource type="PackedScene" uid="uid://dtvf6efb6a6ij" path="res://micro_ondas.tscn" id="3_x6di6"]
+[ext_resource type="PackedScene" uid="uid://cij7ns4ydkgn4" path="res://Cenas/bloco_c.tscn" id="4_wmhvo"]
+[ext_resource type="PackedScene" uid="uid://bbqbpoua5ojgs" path="res://Cenas/bloco_i.tscn" id="5_ph1ny"]
+[ext_resource type="PackedScene" uid="uid://dya6ixcic8ljr" path="res://Cenas/bloco_j.tscn" id="6_hsm80"]
+[ext_resource type="PackedScene" uid="uid://bhvltauxjxn2v" path="res://Cenas/biblioteca.tscn" id="7_dj7rn"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_tv412")
+
+[node name="Player" parent="." instance=ExtResource("2_n00j1")]
+
+[node name="Micro-ondas" parent="." instance=ExtResource("3_x6di6")]
+position = Vector2(-117, 790)
+
+[node name="CC" parent="." instance=ExtResource("2_qy7bc")]
+position = Vector2(-11, 6)
+
+[node name="Bloco C" parent="." instance=ExtResource("4_wmhvo")]
+position = Vector2(-1525, 22)
+
+[node name="Bloco I" parent="." instance=ExtResource("5_ph1ny")]
+position = Vector2(647, 914)
+
+[node name="Bloco J" parent="." instance=ExtResource("6_hsm80")]
+position = Vector2(610, 827)
+
+[node name="Biblioteca" parent="." instance=ExtResource("7_dj7rn")]
+position = Vector2(-69, -446)

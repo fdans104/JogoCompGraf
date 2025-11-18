@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cij7ns4ydkgn4"]
+
+[ext_resource type="Texture2D" uid="uid://cacf5u1diixhm" path="res://Sprites/Bloco_C.png" id="1_k3ed3"]
+[ext_resource type="Script" path="res://Cenas/bloco_c.gd" id="1_kv2fu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyp1b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k3ed3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh4b2"]
+size = Vector2(1359, 360)
+
+[node name="Bloco C" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_kv2fu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1275, 269)
+rotation = -0.349066
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gyp1b")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1278.5, 270)
+rotation = -0.349066
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_lh4b2")

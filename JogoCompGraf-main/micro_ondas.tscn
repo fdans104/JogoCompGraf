@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtvf6efb6a6ij"]
+
+[ext_resource type="Texture2D" uid="uid://cf0kh1e8qbt7t" path="res://Sprites/Micro-ondasOFF.png" id="1_kvfv5"]
+[ext_resource type="Script" uid="uid://dxf50h6tkhkxl" path="res://micro_ondas.gd" id="1_opcvq"]
+[ext_resource type="Texture2D" uid="uid://csr0qlw2dkw2e" path="res://Sprites/Micro-ondasON1.png" id="2_jrmxk"]
+[ext_resource type="Texture2D" uid="uid://du2gm6bsjkg3d" path="res://Sprites/Micro-ondasON2.png" id="3_opcvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bsdc"]
+size = Vector2(40, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2clsx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kvfv5")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jrmxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_opcvq")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jrmxk")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_blb3j"]
+radius = 34.132095
+
+[node name="Micro-ondas" type="StaticBody2D"]
+script = ExtResource("1_opcvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2bsdc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(0.1, 0.08659485)
+sprite_frames = SubResource("SpriteFrames_2clsx")
+animation = &"ready"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_blb3j")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
