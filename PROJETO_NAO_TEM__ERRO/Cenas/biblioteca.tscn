@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhvltauxjxn2v"]
+
+[ext_resource type="Texture2D" uid="uid://b3kpw7u5y2b4s" path="res://Sprites/Biblioteca.png" id="1_42l1l"]
+[ext_resource type="Script" uid="uid://bm14phudl306e" path="res://Cenas/biblioteca.gd" id="1_ktwk3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ly4nc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_42l1l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dsa1"]
+size = Vector2(566.548, 548.961)
+
+[node name="Biblioteca" type="StaticBody2D"]
+position = Vector2(7, 3)
+script = ExtResource("1_ktwk3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(521, 251)
+rotation = 0.523599
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ly4nc")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(533.613, 268.338)
+rotation = 1.32645
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_5dsa1")
